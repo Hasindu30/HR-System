@@ -1,6 +1,6 @@
 # HRM System
 
-This repository contains a full-stack **Human Resource Management (HRM) System** built as a hiring assessment project. It includes a FastAPI backend with PostgreSQL & Alembic migrations, and a Next.js (TypeScript + Tailwind CSS) frontend dashboard.
+This repository contains a full-stack **Human Resource Management (HRM) System** built project. It includes a FastAPI backend with PostgreSQL & Alembic migrations, and a Next.js (TypeScript + Tailwind CSS) frontend dashboard.
 
 ---
 
