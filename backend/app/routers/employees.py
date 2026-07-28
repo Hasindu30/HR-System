@@ -14,7 +14,7 @@ router = APIRouter(tags=["Employees"])
 
 ALLOWED_EXTENSIONS = {".pdf", ".jpg", ".jpeg", ".png"}
 ALLOWED_MIME_TYPES = {"application/pdf", "image/jpeg", "image/png"}
-MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
+MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB  
 
 @router.post("/employees", response_model=EmployeeOut, status_code=status.HTTP_201_CREATED)
 def create_employee(

@@ -5,24 +5,29 @@ interface StatusBadgeProps {
 }
 
 export const StatusBadge: React.FC<StatusBadgeProps> = ({ status }) => {
-  let badgeStyles = 'bg-slate-100 text-slate-700 border-slate-200';
-
   const normalized = status.toUpperCase();
 
+  let dot = 'bg-slate-400';
+  let text = 'text-slate-700';
+  let bg = 'bg-slate-50';
+
   if (['ACTIVE', 'PAID'].includes(normalized)) {
-    badgeStyles = 'bg-emerald-50 text-emerald-700 border-emerald-200/80';
+    dot = 'bg-[#16a34a]'; // Success Green
+    text = 'text-emerald-800';
+    bg = 'bg-emerald-50';
   } else if (['INACTIVE', 'TERMINATED', 'FAILED'].includes(normalized)) {
-    badgeStyles = 'bg-red-50 text-red-700 border-red-200/80';
+    dot = 'bg-[#dc2626]'; // Danger Red
+    text = 'text-rose-700';
+    bg = 'bg-rose-50';
   } else if (['ONBOARDING', 'PENDING'].includes(normalized)) {
-    badgeStyles = 'bg-amber-50 text-amber-700 border-amber-200/80';
+    dot = 'bg-[#f59e0b]'; // Warning Amber
+    text = 'text-amber-800';
+    bg = 'bg-amber-50';
   }
 
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${badgeStyles}`}>
-      <span className={`w-1.5 h-1.5 rounded-full mr-1.5 ${
-        ['ACTIVE', 'PAID'].includes(normalized) ? 'bg-emerald-500' :
-        ['INACTIVE', 'TERMINATED', 'FAILED'].includes(normalized) ? 'bg-red-500' : 'bg-amber-500'
-      }`} />
+    <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-semibold tracking-wide ${bg} ${text}`}>
+      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dot}`} />
       {status}
     </span>
   );
